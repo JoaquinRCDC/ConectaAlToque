@@ -1,121 +1,326 @@
 export default function App() {
   return (
-    <div className="font-sans text-gray-800">
-      {/* Hero / Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-12 text-center">
-        <h1 className="text-4xl font-bold mb-2">Conectaltoque</h1>
-        <p className="text-lg mb-4">Creamos sitios web profesionales para pymes y emprendedores</p>
-        <a href="#contacto" className="bg-white text-blue-600 font-semibold px-6 py-2 rounded-xl shadow hover:bg-blue-50">
-          Contáctanos por WhatsApp
-        </a>
+    <div className="font-sans text-gray-800 antialiased">
+      {/* Hero Section - Mejorado con gradiente más suave y mejor espaciado */}
+      <header className="bg-gradient-to-br from-blue-700 to-indigo-800 text-white py-20 px-4 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl font-bold mb-4 tracking-tight">Conecta con tus clientes al toque</h1>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Creamos sitios web profesionales que convierten visitantes en clientes
+          </p>
+          <a 
+            href="#contacto" 
+            className="inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            Contáctanos por WhatsApp
+          </a>
+        </div>
       </header>
 
-      {/* Problema + Solución */}
-      <section className="bg-white p-10 text-center">
-        <h2 className="text-2xl font-bold mb-4">¿Aún no tienes página web?</h2>
-        <p className="max-w-xl mx-auto">
-          Tus clientes no te encuentran en Google, no puedes escalar tus ventas y dependes 100% de redes sociales.
-          Nosotros te ayudamos a tener presencia online con una web rápida, bonita y adaptada a ti.
-        </p>
-      </section>
-      
-
-      <section className="bg-white p-10 text-center">
-  <h2 className="text-2xl font-bold mb-6">Ejemplos de páginas</h2>
-
-  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-    {/* Ejemplo: Landing */}
-    <div className="bg-gray-50 rounded-xl shadow overflow-hidden">
-      <img src="/ejemplos/landing1.jpg" alt="Landing ejemplo" className="w-full h-48 object-cover" />
-      <div className="p-4">
-        <h3 className="font-semibold mb-2">Landing para servicios</h3>
-        <p className="text-sm text-gray-600 mb-4">Presentación clara, botones de contacto, imagen de marca.</p>
-        <a
-          href="/ejemplo-landing"
-          className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-        >
-          Ver demo
-        </a>
-      </div>
-    </div>
-
-    {/* Ejemplo: Tienda */}
-    <div className="bg-gray-50 rounded-xl shadow overflow-hidden">
-      <img src="/ejemplos/tienda1.jpg" alt="Tienda ejemplo" className="w-full h-48 object-cover" />
-      <div className="p-4">
-        <h3 className="font-semibold mb-2">Mini tienda online</h3>
-        <p className="text-sm text-gray-600 mb-4">Catálogo de productos con botón de WhatsApp o pago.</p>
-        <a
-          href="/ejemplo-tienda"
-          className="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
-        >
-          Ver demo
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-      {/* Servicios */}
-      <section className="bg-gray-100 p-10 text-center">
-        <h2 className="text-2xl font-bold mb-6">¿Qué incluye?</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white rounded-xl shadow p-6">
-            <h3 className="font-semibold text-lg mb-2">Diseño personalizado</h3>
-            <p>Web moderna, adaptable a celulares, con los colores y estilo de tu marca.</p>
-          </div>
-          <div className="bg-white rounded-xl shadow p-6">
-            <h3 className="font-semibold text-lg mb-2">Enlace a redes y WhatsApp</h3>
-            <p>Botón de contacto directo, Instagram, correo, ubicación.</p>
-          </div>
-          <div className="bg-white rounded-xl shadow p-6">
-            <h3 className="font-semibold text-lg mb-2">Dominio y hosting</h3>
-            <p>Nos encargamos de todo para que tu web esté online 24/7.</p>
+      {/* Problema + Solución - Mejor jerarquía */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="text-blue-600 font-semibold mb-2 block">¿Necesitas presencia online?</span>
+          <h2 className="text-3xl font-bold mb-6">Tu negocio invisible en internet</h2>
+          <div className="grid md:grid-cols-2 gap-8 text-left mt-10">
+            <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-blue-500">
+              <h3 className="font-bold text-lg mb-3 text-gray-800">El problema</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✖</span>
+                  <span>Tus clientes no te encuentran en Google</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✖</span>
+                  <span>Dependes 100% de redes sociales</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✖</span>
+                  <span>Pierdes ventas por no tener web profesional</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-indigo-500">
+              <h3 className="font-bold text-lg mb-3 text-gray-800">Nuestra solución</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✔</span>
+                  <span>Web rápida y optimizada para móviles</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✔</span>
+                  <span>Diseño que refleja tu marca</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✔</span>
+                  <span>Integración directa con WhatsApp</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Planes */}
-      <section className="p-10 bg-white text-center">
-        <h2 className="text-2xl font-bold mb-6">Planes</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="bg-gray-100 rounded-xl p-6 shadow">
-            <h3 className="text-xl font-bold mb-2">Básico</h3>
-            <p className="text-gray-700 mb-4">$89.000 CLP</p>
-            <p className="text-sm">1 sección, diseño personalizado, botón de contacto.</p>
+      {/* Ejemplos de páginas - Cards mejoradas */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Nuestros trabajos</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Diseños modernos que generan resultados reales para tu negocio
+            </p>
           </div>
-          <div className="bg-blue-100 border border-blue-500 rounded-xl p-6 shadow">
-            <h3 className="text-xl font-bold mb-2">Profesional</h3>
-            <p className="text-gray-700 mb-4">$129.000 CLP</p>
-            <p className="text-sm">Web completa, 3 secciones, redes, contacto, optimización móvil.</p>
-          </div>
-          <div className="bg-gray-100 rounded-xl p-6 shadow">
-            <h3 className="text-xl font-bold mb-2">Tienda</h3>
-            <p className="text-gray-700 mb-4">$179.000 CLP</p>
-            <p className="text-sm">Catálogo de productos, botón de compra o redirección a pago.</p>
+          
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {/* Ejemplo Landing */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+              <div className="h-48 bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center">
+                <span className="text-white text-xl font-bold">Landing Page</span>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-xl mb-2">Landing para servicios</h3>
+                <p className="text-gray-600 mb-4">
+                  Presentación profesional con llamados a acción estratégicos
+                </p>
+                <div className="flex justify-between items-center">
+                  <a 
+                    href="/ejemplo-landing" 
+                    className="text-blue-600 hover:text-blue-800 font-medium"
+                  >
+                    Ver demo →
+                  </a>
+                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                    Más popular
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Ejemplo Tienda */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+              <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
+                <span className="text-white text-xl font-bold">Tienda Online</span>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-xl mb-2">Mini tienda</h3>
+                <p className="text-gray-600 mb-4">
+                  Catálogo de productos con integración a WhatsApp para pedidos
+                </p>
+                <a 
+                  href="/ejemplo-tienda" 
+                  className="text-indigo-600 hover:text-indigo-800 font-medium"
+                >
+                  Ver demo →
+                </a>
+              </div>
+            </div>
+
+            {/* Nuevo ejemplo agregado */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+              <div className="h-48 bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center">
+                <span className="text-white text-xl font-bold">Portafolio</span>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-xl mb-2">Portafolio profesional</h3>
+                <p className="text-gray-600 mb-4">
+                  Muestra tu trabajo de manera elegante y atractiva
+                </p>
+                <a 
+                  href="#" 
+                  className="text-amber-600 hover:text-amber-800 font-medium"
+                >
+                  Próximamente
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contacto */}
-      <section id="contacto" className="p-10 text-center bg-gray-50">
-        <h2 className="text-2xl font-bold mb-4">¿Listo para tener tu web?</h2>
-        <p className="mb-6">Escríbenos y te respondemos al toque por WhatsApp.</p>
-        <a
-          href="https://wa.me/56912345678"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-green-500 text-white font-bold px-6 py-3 rounded-xl shadow hover:bg-green-600"
-        >
-          Escríbenos ahora
-        </a>
+      {/* Servicios - Mejor diseño */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="text-blue-600 font-semibold mb-2 block">Lo que ofrecemos</span>
+          <h2 className="text-3xl font-bold mb-12">Todo incluido en tu web</h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: '🎨',
+                title: 'Diseño premium',
+                description: 'Moderno, adaptable a móviles y con tu identidad visual'
+              },
+              {
+                icon: '⚡',
+                title: 'Rápida y segura',
+                description: 'Optimizada para velocidad y con certificado SSL'
+              },
+              {
+                icon: '📱',
+                title: 'Integración WhatsApp',
+                description: 'Botón directo de contacto para más ventas'
+              },
+              {
+                icon: '🔍',
+                title: 'SEO básico',
+                description: 'Configuración para aparecer en búsquedas'
+              },
+              {
+                icon: '🔄',
+                title: 'Actualizaciones',
+                description: 'Soporte para pequeños cambios mensuales'
+              },
+              {
+                icon: '📊',
+                title: 'Analíticas',
+                description: 'Integración con Google Analytics'
+              }
+            ].map((service, index) => (
+              <div key={index} className="bg-gray-50 p-6 rounded-xl hover:bg-blue-50 transition-colors">
+                <span className="text-3xl mb-3 block">{service.icon}</span>
+                <h3 className="font-bold text-lg mb-2">{service.title}</h3>
+                <p className="text-gray-600 text-sm">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white p-4 text-center text-sm">
-        &copy; {new Date().getFullYear()} Conectaltoque. Todos los derechos reservados.
+      {/* Planes - Más atractivos */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Planes a medida</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Elige la opción que mejor se adapte a las necesidades de tu negocio
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Básico',
+                price: '$89.000',
+                popular: false,
+                features: ['1 sección principal', 'Diseño personalizado', 'Botón de contacto', 'Optimización móvil'],
+                color: 'gray'
+              },
+              {
+                name: 'Profesional',
+                price: '$129.000',
+                popular: true,
+                features: ['Hasta 3 secciones', 'Galería de imágenes', 'Redes sociales', 'Formulario de contacto', 'SEO básico'],
+                color: 'blue'
+              },
+              {
+                name: 'Tienda',
+                price: '$179.000',
+                popular: false,
+                features: ['Catálogo de productos', 'Botón de compra', 'Gestión de inventario', 'WhatsApp Business', 'Analíticas'],
+                color: 'indigo'
+              }
+            ].map((plan, index) => (
+              <div 
+                key={index} 
+                className={`relative rounded-xl shadow-md overflow-hidden ${plan.popular ? 'ring-2 ring-blue-500 transform md:-translate-y-4' : ''}`}
+              >
+                {plan.popular && (
+                  <div className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                    RECOMENDADO
+                  </div>
+                )}
+                <div className={`bg-${plan.color}-100 p-6 text-center`}>
+                  <h3 className={`text-2xl font-bold text-${plan.color}-800`}>{plan.name}</h3>
+                  <p className={`text-${plan.color}-600 text-4xl font-bold my-4`}>{plan.price}</p>
+                  <p className="text-gray-600 text-sm">CLP</p>
+                </div>
+                <div className="bg-white p-6">
+                  <ul className="space-y-3 mb-6">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className={`text-${plan.color}-500 mr-2`}>✓</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className={`w-full bg-${plan.color}-600 hover:bg-${plan.color}-700 text-white font-bold py-3 rounded-lg transition-colors`}>
+                    Contratar
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contacto - Más llamativo */}
+      <section id="contacto" className="py-20 px-4 bg-gradient-to-r from-blue-700 to-indigo-800 text-white text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4">¿Listo para comenzar?</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Cuéntanos sobre tu proyecto y te enviaremos una cotización sin compromiso
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wa.me/56912345678"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2"
+            >
+              <span>WhatsApp</span>
+              <span>→</span>
+            </a>
+            <a
+              href="mailto:contacto@conectaltoque.cl"
+              className="bg-white hover:bg-gray-100 text-blue-700 font-bold px-8 py-4 rounded-lg shadow-lg transition-colors"
+            >
+              Email
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer - Más completo */}
+      <footer className="bg-gray-900 text-gray-400 py-12 px-4">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-white text-lg font-bold mb-4">Conectaltoque</h3>
+            <p className="text-sm">
+              Creamos sitios web profesionales para pymes y emprendedores en Chile.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-white font-medium mb-4">Servicios</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-white transition">Landing Pages</a></li>
+              <li><a href="#" className="hover:text-white transition">Tiendas Online</a></li>
+              <li><a href="#" className="hover:text-white transition">Portafolios</a></li>
+              <li><a href="#" className="hover:text-white transition">Mantención</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-medium mb-4">Legal</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-white transition">Términos y condiciones</a></li>
+              <li><a href="#" className="hover:text-white transition">Política de privacidad</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-medium mb-4">Contacto</h4>
+            <ul className="space-y-2 text-sm">
+              <li>contacto@conectaltoque.cl</li>
+              <li>+56 9 1234 5678</li>
+              <li className="flex space-x-4 mt-4">
+                <a href="#" className="hover:text-white transition">FB</a>
+                <a href="#" className="hover:text-white transition">IG</a>
+                <a href="#" className="hover:text-white transition">TW</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+          &copy; {new Date().getFullYear()} Conectaltoque. Todos los derechos reservados.
+        </div>
       </footer>
     </div>
   );

@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import EjemploLanding from "./EjemploLanding";
-import EjemploTienda from "./EjemploTienda";
+import EjemploLanding from "./components/EjemploLanding/EjemploLanding";
+import EjemploTienda from "./components/EjemploTienda/EjemploTienda";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

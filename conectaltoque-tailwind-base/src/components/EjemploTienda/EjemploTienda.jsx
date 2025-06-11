@@ -8,4 +8,6 @@ export default function EjemploTienda() {
       {/* Aquí podrías simular productos, precios, etc. */}
     </div>
   );
+
+  
 }
