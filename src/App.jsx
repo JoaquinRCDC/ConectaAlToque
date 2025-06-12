@@ -31,7 +31,7 @@ export default function App() {
             </div>
             
             {/* Contenido de texto */}
-            <h1 className="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Obten tu propia pagina web en menos de 2 dias.</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Obtén tu propia página web en menos de 2 días.</h1>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto" data-aos="fade-up" >“Si tu negocio no está en internet, tu negocio no existe” - Bill Gates</p>
             
             {/* Botón */}
@@ -87,6 +87,18 @@ export default function App() {
                   <span className="text-green-500 mr-2">✔</span>
                   <span>Integración directa con WhatsApp o Instagram</span>
                 </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✔</span>
+                  <span>Integración de WebPay</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✔</span>
+                  <span>Carrito de compras</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✔</span>
+                  <span>Gestión de inventario</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -127,7 +139,9 @@ export default function App() {
                   >
                     Ver demo →
                   </a>
-                  
+                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                    Más popular
+                  </span>
                   
                 </div>
                 
@@ -137,26 +151,24 @@ export default function App() {
             </a>
 
             {/* Ejemplo Tienda */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"  > <a href="/ejemplo-tienda" >
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"  > <a href="#" >
               <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
                 <span className="text-white text-xl font-bold">Mini tienda</span>
               </div>
               <div className="p-6">
                 <h3 className="font-bold text-xl mb-2">Mini tienda</h3>
                 <p className="text-gray-600 mb-4">
-                  Catálogo de productos con integración a WhatsApp para pedidos
+                  Catálogo de productos con integración a WhatsApp o instagram para pedidos
                 </p>
                 <div className="flex justify-between items-center">
                 <a 
                   href="/ejemplo-tienda" 
                   className="text-indigo-600 hover:text-indigo-800 font-medium"
                 >
-                  Ver demo →
+                  Proximamente
                   
                 </a>
-                <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                    Más popular
-                  </span>
+                
                 </div>
                 
               </div>
@@ -172,7 +184,7 @@ export default function App() {
               <div className="p-6">
                 <h3 className="font-bold text-xl mb-2">Tienda Full</h3>
                 <p className="text-gray-600 mb-4">
-                  Muestra tu trabajo de manera elegante y atractiva
+                  Tu tienda online completa con carrito de compras y WebPay
                 </p>
                 <a 
                   href="#" 
@@ -224,7 +236,25 @@ export default function App() {
                 icon: '📊',
                 title: 'Analíticas',
                 description: 'Integración con Google Analytics'
+              },
+              {
+                icon: '📦',
+                title: 'Gestion de inventario',
+                description: 'Gestion de productos y stock para tiendas online'
+              },
+              {
+                icon: '🛒',
+                title: 'Carrito de compras',
+                description: 'Implementacion de carrito de compras para tiendas'
+              },
+              {
+                icon: '💳',
+                title: 'WebPay',
+                description: 'Integración con Webpay para pagos online'
               }
+
+              
+
             ].map((service, index) => (
               <div key={index} className="bg-gray-50 p-6 rounded-xl hover:bg-blue-50 transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                 <span className="text-3xl mb-3 block">{service.icon}</span>
@@ -250,23 +280,23 @@ export default function App() {
             {[
               {
                 name: 'Landing Page',
-                price: '$89.000',
+                price: '$89.000 ',
                 popular: false,
-                features: ['1 sección principal', 'Diseño personalizado', 'Botón de contacto', 'Optimización móvil','animaciones básicas'],
+                features: ['1 sección principal', 'Diseño personalizado', 'Botón de contacto', 'Optimización móvil','Animaciones básicas'],
                 color: 'blue'
               },
               {
                 name: 'Mini Tienda',
                 price: '$129.000',
                 popular: true,
-                features: ['Hasta 3 secciones', 'Galería de imágenes', 'Redes sociales', 'Formulario de contacto', 'SEO básico'],
+                features: ['Hasta 3 secciones', 'Publicaciones de instagram', 'Gestion de Productos', 'Formulario de contacto', 'SEO básico'],
                 color: 'blue'
               },
               {
                 name: 'Tienda Full',
                 price: '$179.000',
                 popular: false,
-                features: ['Catálogo de productos', 'Botón de compra', 'Gestión de inventario', 'WhatsApp Business', 'Analíticas'],
+                features: ['Catálogo de productos', 'Carrito de compra', 'Gestión de inventario', 'WebPay', 'Analíticas'],
                 color: 'blue'
               }
             ].map((plan, index) => {
@@ -286,8 +316,10 @@ export default function App() {
 
                   <div className={`bg-${plan.color}-100 p-6 text-center`}>
                     <h3 className={`text-2xl font-bold text-${plan.color}-800`}>{plan.name}</h3>
-                    <p className={`text-${plan.color}-600 text-4xl font-bold my-4`}>{plan.price}</p>
-                    <p className="text-gray-600 text-sm">CLP</p>
+                    <p className={`text-${plan.color}-600 text-4xl font-bold mt-4`}>{plan.price}</p>
+                    <p className="text-gray-600 text-sm mb-2">Pago único por el desarrollo (Primer año incluye hosting).</p>
+                    <p className="text-xs text-gray-500 italic">+ $30.000 anuales por hosting y dominio</p>
+
                   </div>
 
                   <div className="bg-white p-6">
