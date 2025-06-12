@@ -1,27 +1,43 @@
+const logobanner = new URL('./assets/logobanner.png', import.meta.url).href;
+
 export default function App() {
+
+
   return (
+    
     <div className="font-sans text-gray-800 antialiased">
       {/* Hero Section - Mejorado con gradiente más suave y mejor espaciado */}
-      <header className="bg-gradient-to-br from-blue-700 to-indigo-800 text-white py-20 px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl font-bold mb-4 tracking-tight">Conecta con tus clientes al toque</h1>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Creamos sitios web profesionales que convierten visitantes en clientes
-          </p>
-          <a 
-            href="#contacto" 
-            className="inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-          >
-            Contáctanos por WhatsApp
-          </a>
+      <header className="bg-gradient-to-r from-teal-600 to-blue-700 text-white py-12 px-4 flex items-center justify-center min-h-[60vh]">
+        <div className="max-w-6xl w-full mx-auto">
+          <div className="flex flex-col items-center text-center">
+            {/* Logo centrado */}
+            <div className="mb-8 w-full max-w-[280px] md:max-w-[350px]">
+              <img 
+                src={logobanner} 
+                alt="Logo Conecta al Toque" 
+                className="w-full"
+              />
+            </div>
+            
+            {/* Contenido de texto */}
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">CONECTA AL TOQUE</h1>
+            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">Conecta con tus clientes</p>
+            
+            {/* Botón */}
+            <a 
+              href="#contacto" 
+              className="inline-block bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold px-8 py-3 rounded-lg transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-1"
+            >
+              Contáctanos por WhatsApp
+            </a>
+          </div>
         </div>
       </header>
 
       {/* Problema + Solución - Mejor jerarquía */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-blue-600 font-semibold mb-2 block">¿Necesitas presencia online?</span>
-          <h2 className="text-3xl font-bold mb-6">Tu negocio invisible en internet</h2>
+          <h2 className="text-3xl font-bold mb-6">NECESITAS PRESENCIA ONLINE</h2>
           <div className="grid md:grid-cols-2 gap-8 text-left mt-10">
             <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-blue-500">
               <h3 className="font-bold text-lg mb-3 text-gray-800">El problema</h3>
