@@ -220,7 +220,7 @@ export default function App() {
             </a>
 
             {/* Ejemplo Tienda */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"  > <a href="#" >
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"  > <a href="/ejemplo-tienda" >
               <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
                 <span className="text-white text-xl font-bold">Mini tienda</span>
               </div>
