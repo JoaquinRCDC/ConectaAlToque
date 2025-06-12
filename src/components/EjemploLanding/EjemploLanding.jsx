@@ -14,10 +14,7 @@ export default function LandingZapatillas() {
             
             {/* Menú de navegación */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#inicio" className="text-gray-700 hover:text-blue-600 transition">Inicio</a>
-              <a href="#tecnologia" className="text-gray-700 hover:text-blue-600 transition">Tecnología</a>
-              <a href="#detalles" className="text-gray-700 hover:text-blue-600 transition">Detalles</a>
-              <a href="#testimonios" className="text-gray-700 hover:text-blue-600 transition">Opiniones</a>
+
               
               {/* Botón de contacto en navbar */}
               <a 
@@ -59,7 +56,7 @@ export default function LandingZapatillas() {
               href="https://wa.me/56912345678?text=Quiero%20comprar%20las%20UltraRun%20Pro" 
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg shadow-lg transition-colors mb-4 w-full md:w-auto text-center"
             >
-              Comprar ahora
+              Preguntar por WhatsApp
             </a>
             
             <div className="flex items-center text-sm text-gray-600">
@@ -225,12 +222,7 @@ export default function LandingZapatillas() {
           <p className="text-xl mb-6">Obtén tus UltraRun Pro con 20% de descuento hoy</p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a 
-              href="https://wa.me/56912345678?text=Quiero%20comprar%20las%20UltraRun%20Pro%20con%20descuento" 
-              className="bg-white hover:bg-gray-100 text-blue-600 font-bold px-8 py-3 rounded-lg shadow-lg transition-colors"
-            >
-              Comprar ahora
-            </a>
+
             <a 
               href="https://wa.me/56912345678?text=Tengo%20dudas%20sobre%20las%20zapatillas%20UltraRun%20Pro" 
               className="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-3 rounded-lg shadow-lg transition-colors"
