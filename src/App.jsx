@@ -105,99 +105,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Ejemplos de páginas - Cards mejoradas */}
-      <section className="py-16 px-4 bg-gray-50" data-aos="fade-up" id="servicios">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Nuestros trabajos</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Diseños modernos que generan resultados reales para tu negocio
-            </p>
-          </div>
-          
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"> <a href="/ejemplo-landing">
-            {/* Ejemplo Landing */}
-            
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={EjemploLanding}
-                  alt="Preview Landing"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-2">Landing para servicios</h3>
-                <p className="text-gray-600 mb-4">
-                  Presentación profesional con llamados a acción estratégicos
-                </p>
-                <div className="flex justify-between items-center">
-                  <a 
-                    href="/ejemplo-landing" 
-                    className="text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    Ver demo →
-                  </a>
-                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                    Más popular
-                  </span>
-                  
-                </div>
-                
-              </div>
-              
-            </div>
-            </a>
-
-            {/* Ejemplo Tienda */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"  > <a href="#" >
-              <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
-                <span className="text-white text-xl font-bold">Mini tienda</span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-2">Mini tienda</h3>
-                <p className="text-gray-600 mb-4">
-                  Catálogo de productos con integración a WhatsApp o instagram para pedidos
-                </p>
-                <div className="flex justify-between items-center">
-                <a 
-                  href="/ejemplo-tienda" 
-                  className="text-indigo-600 hover:text-indigo-800 font-medium"
-                >
-                  Proximamente
-                  
-                </a>
-                
-                </div>
-                
-              </div>
-              </a>
-            </div>
-            
-
-            {/* Nuevo ejemplo agregado */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg" >
-              <div className="h-48 bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center">
-                <span className="text-white text-xl font-bold">Tienda Full</span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-2">Tienda Full</h3>
-                <p className="text-gray-600 mb-4">
-                  Tu tienda online completa con carrito de compras y WebPay
-                </p>
-                <a 
-                  href="#" 
-                  className="text-amber-600 hover:text-amber-800 font-medium"
-                >
-                  Próximamente
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Servicios - Mejor diseño */}
       <section className="py-16 px-4 bg-white" data-aos="fade-up">
         <div className="max-w-4xl mx-auto text-center">
@@ -266,6 +173,101 @@ export default function App() {
         </div>
       </section>
 
+
+      {/* Ejemplos de páginas - Cards mejoradas */}
+      <section className="py-16 px-4 bg-gray-50" data-aos="fade-up" id="servicios">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Nuestros trabajos</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Revisa nuestros modelos de trabajo y elije el que más te guste.
+            </p>
+          </div>
+          
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"> <a href="/ejemplo-landing">
+            {/* Ejemplo Landing */}
+            
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={EjemploLanding}
+                  alt="Preview Landing"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="p-6">
+                <h3 className="font-bold text-xl mb-2">Landing Page</h3>
+                <p className="text-gray-600 mb-4">
+                  Presentación profesional con llamados a acción estratégicos
+                </p>
+                <div className="flex justify-between items-center">
+                  <a 
+                    href="/ejemplo-landing" 
+                    className="text-blue-600 hover:text-blue-800 font-medium"
+                  >
+                    Ver ejemplo →
+                  </a>
+                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                    Más popular
+                  </span>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            </a>
+
+            {/* Ejemplo Tienda */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"  > <a href="#" >
+              <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
+                <span className="text-white text-xl font-bold">Mini tienda</span>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-xl mb-2">Mini tienda</h3>
+                <p className="text-gray-600 mb-4">
+                  Catálogo de productos con integración a WhatsApp o instagram para pedidos
+                </p>
+                <div className="flex justify-between items-center">
+                <a 
+                  href="/ejemplo-tienda" 
+                  className="text-indigo-600 hover:text-indigo-800 font-medium"
+                >
+                  Proximamente
+                  
+                </a>
+                
+                </div>
+                
+              </div>
+              </a>
+            </div>
+            
+
+            {/* Nuevo ejemplo agregado */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg" >
+              <div className="h-48 bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center">
+                <span className="text-white text-xl font-bold">Tienda Full</span>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-xl mb-2">Tienda Full</h3>
+                <p className="text-gray-600 mb-4">
+                  Tu tienda online completa con carrito de compras y WebPay
+                </p>
+                <a 
+                  href="#" 
+                  className="text-amber-600 hover:text-amber-800 font-medium"
+                >
+                  Próximamente
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
       {/* Planes - Más atractivos */}
       <section className="py-16 px-4 bg-gray-50 " data-aos="fade-up" >
         <div className="max-w-5xl mx-auto">
