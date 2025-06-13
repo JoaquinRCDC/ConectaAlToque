@@ -1,5 +1,8 @@
 const logobanner = new URL('./assets/logobanner.png', import.meta.url).href;
 const EjemploLanding = new URL('./assets/EjemploLanding.png', import.meta.url).href;
+const ejemplominitienda = new URL('./assets/ejemplominitienda.png', import.meta.url).href;
+
+
 
 import { FaWhatsapp } from "react-icons/fa";
 import AOS from "aos";
@@ -221,9 +224,15 @@ export default function App() {
 
             {/* Ejemplo Tienda */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"  > <a href="/ejemplo-tienda" >
-              <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
-                <span className="text-white text-xl font-bold">Mini tienda</span>
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={ejemplominitienda}
+                  alt="Preview Landing"
+                  className="w-full h-full object-cover"
+                />
               </div>
+              
+
               <div className="p-6">
                 <h3 className="font-bold text-xl mb-2">Mini tienda</h3>
                 <p className="text-gray-600 mb-4">
