@@ -160,7 +160,7 @@ export default function MiniTienda() {
         <div className="max-w-2xl mx-auto text-center">
           <h3 className="text-2xl font-bold text-gray-800 mb-4">Contáctanos</h3>
           <p className="text-gray-600 mb-6">
-            ¿Tienes dudas o necesitas un diseño a medida? Escríbenos directo.
+            ¿Tienes dudas? Escríbenos directo.
           </p>
 
           <form

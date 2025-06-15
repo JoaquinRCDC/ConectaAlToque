@@ -243,7 +243,7 @@ export default function App() {
                   href="/ejemplo-tienda" 
                   className="text-indigo-600 hover:text-indigo-800 font-medium"
                 >
-                  Proximamente
+                  Ver ejemplo →
                   
                 </a>
                 
@@ -312,7 +312,7 @@ export default function App() {
               }
             ].map((plan, index) => {
               // 🔧 Agrega esto dentro del map
-              const link = `https://wa.me/56912345678?text=${encodeURIComponent(`Hola! Estoy interesado en el plan ${plan.name} de ConectAlToque.`)}`;
+              const link = `https://wa.me/56929240183?text=${encodeURIComponent(`Hola! Estoy interesado en el plan ${plan.name} de ConectAlToque.`)}`;
 
               return (
                 <div 
