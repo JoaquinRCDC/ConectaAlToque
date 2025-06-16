@@ -255,7 +255,8 @@ export default function App() {
             
 
             {/* Nuevo ejemplo agregado */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg" >
+            
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg" > <a href="/ejemplo-tiendaFull">
               <div className="h-48 bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center">
                 <span className="text-white text-xl font-bold">Tienda Full</span>
               </div>
@@ -271,7 +272,63 @@ export default function App() {
                   Próximamente
                 </a>
               </div>
+              </a>
             </div>
+            
+          </div>
+          
+        </div>
+        
+      </section>
+
+      <section className="py-20 px-4 bg-white" data-aos="fade-up">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">Comparación de planes</h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white border border-gray-200 text-sm">
+              <thead>
+                <tr className="bg-blue-600 text-white">
+                  <th className="py-3 px-4 text-left">Funcionalidad</th>
+                  <th className="py-3 px-4">Landing Page</th>
+                  <th className="py-3 px-4">Mini Tienda</th>
+                  <th className="py-3 px-4">Tienda Full</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["Diseño personalizado", true, true, true],
+                  ["Responsive (móvil/tablet)", true, true, true],
+                  ["Botón de contacto", true, true, true],
+                  ["Catálogo de productos", false, true, true],
+                  ["Categorías de productos", false, true, true],
+                  ["WhatsApp por producto", false, true, false],
+                  ["Carrito de compras", false, false, true],
+                  ["WebPay", false, false, true],
+                  ["Gestión de inventario", false, false, true],
+                  ["Formulario de contacto", false, true, true],
+                  ["Mapa/localización", false, true, true],
+                  ["SEO básico", true, true, true],
+                  ["Animaciones AOS", true, true, true],
+                ].map(([item, landing, mini, full], i) => (
+                  <tr
+                    key={i}
+                    className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                  >
+                    <td className="py-3 px-4 text-left font-medium text-gray-700">
+                      {item}
+                    </td>
+                    {[landing, mini, full].map((val, j) => (
+                      <td
+                        key={j}
+                        className="py-3 px-4 text-center text-xl"
+                      >
+                        {val ? "✔️" : "—"}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -328,8 +385,8 @@ export default function App() {
                   <div className={`bg-${plan.color}-100 p-6 text-center`}>
                     <h3 className={`text-2xl font-bold text-${plan.color}-800`}>{plan.name}</h3>
                     <p className={`text-${plan.color}-600 text-4xl font-bold mt-4`}>{plan.price}</p>
-                    <p className="text-gray-600 text-sm mb-2">Pago único por el desarrollo (Primer año incluye hosting).</p>
-                    <p className="text-xs text-gray-500 italic">+ $30.000 anuales por hosting y dominio</p>
+                    <p className="text-gray-600 text-sm mb-2 mt-4">Una vez pagado, es tuyo para siempre. Solo se renueva el hosting anualmente <br />(35.000 CLP)</p>
+                    
 
                   </div>
 
@@ -359,6 +416,8 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      
 
       {/* Contacto - Más llamativo */}
       <section id="contacto" className="py-20 px-4 bg-gradient-to-r from-teal-600 to-blue-700 text-white  text-center " > 
@@ -392,7 +451,8 @@ export default function App() {
           </div>
         </div>
       </section>
-
+      
+      
       {/* Footer - Más completo */}
       <footer className="bg-gradient-to-r from-teal-600 to-blue-700 text-white py-12 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
@@ -431,6 +491,8 @@ export default function App() {
             </ul>
           </div>
         </div>
+
+        
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
           &copy; {new Date().getFullYear()} Conectaltoque. Todos los derechos reservados.
         </div>

@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function LandingZapatillas() {
+useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
+
   return (
     <div className="font-sans text-gray-900 antialiased">
       {/* Navbar profesional */}
@@ -39,7 +46,7 @@ export default function LandingZapatillas() {
       </nav>
 
       {/* Hero Section con producto destacado */}
-      <section id="inicio" className="bg-gradient-to-b from-gray-100 to-white pt-8 pb-12 px-4">
+      <section id="inicio" className="bg-gradient-to-b from-gray-100 to-white pt-8 pb-12 px-4" data-aos="fade-up">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/2">
             <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">NUEVO MODELO</span>
@@ -86,7 +93,7 @@ export default function LandingZapatillas() {
       </section>
 
       {/* Sección de beneficios */}
-      <section id="tecnologia" className="py-16 px-4 bg-white">
+      <section id="tecnologia" className="py-16 px-4 bg-white" data-aos="fade-up">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Tecnología que <span className="text-blue-600">mejora tu rendimiento</span></h2>
           
@@ -119,7 +126,7 @@ export default function LandingZapatillas() {
       </section>
 
       {/* Galería de productos */}
-      <section id="detalles" className="py-16 px-4 bg-gray-50">
+      <section id="detalles" className="py-16 px-4 bg-gray-50" data-aos="fade-up">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Detalles que marcan la diferencia</h2>
           
@@ -176,7 +183,7 @@ export default function LandingZapatillas() {
       </section>
 
       {/* Testimonios */}
-      <section id="testimonios" className="py-16 px-4 bg-white">
+      <section id="testimonios" className="py-16 px-4 bg-white" data-aos="fade-up">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Opiniones de <span className="text-blue-600">nuestros clientes</span></h2>
           
@@ -215,7 +222,7 @@ export default function LandingZapatillas() {
       </section>
 
       {/* CTA Final con garantía */}
-      <section className="py-16 px-4 bg-blue-600 text-white text-center">
+      <section className="py-16 px-4 bg-blue-600 text-white text-center" data-aos="fade-up">
         <div className="max-w-2xl mx-auto">
           <div className="bg-white text-blue-800 inline-block px-3 py-1 rounded-full text-sm font-bold mb-4">OFERTA POR TIEMPO LIMITADO</div>
           <h2 className="text-3xl font-bold mb-4">¿Qué estás esperando?</h2>
