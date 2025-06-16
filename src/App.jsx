@@ -1,6 +1,8 @@
 const logobanner = new URL('./assets/logobanner.png', import.meta.url).href;
 const EjemploLanding = new URL('./assets/EjemploLanding.png', import.meta.url).href;
 const ejemplominitienda = new URL('./assets/ejemplominitienda.png', import.meta.url).href;
+const EjemploTiendaFull = new URL('./assets/EjemploTiendaFull.png', import.meta.url).href;
+
 
 
 
@@ -257,8 +259,12 @@ export default function App() {
             {/* Nuevo ejemplo agregado */}
             
             <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg" > <a href="/ejemplo-tiendaFull">
-              <div className="h-48 bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center">
-                <span className="text-white text-xl font-bold">Tienda Full</span>
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={EjemploTiendaFull}
+                  alt="Preview Landing"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="font-bold text-xl mb-2">Tienda Full</h3>
@@ -269,7 +275,7 @@ export default function App() {
                   href="#" 
                   className="text-amber-600 hover:text-amber-800 font-medium"
                 >
-                  Próximamente
+                  Ver ejemplo →
                 </a>
               </div>
               </a>
