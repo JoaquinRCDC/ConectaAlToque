@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
-
+import CarritoSidebar from './CarritoSidebar';
 export default function TiendaFull() {
-  const [carrito, setCarrito] = useState([]);
+  
   const [categoria, setCategoria] = useState('');
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -39,11 +39,17 @@ export default function TiendaFull() {
 
   const agregarAlCarrito = (producto) => {
     setCarrito([...carrito, producto]);
+    setCartOpen(true);
   };
+    const [cartOpen, setCartOpen] = useState(false);
+  const [carrito, setCarrito] = useState([]);
 
   const total = carrito.reduce((sum, item) => sum + item.precio, 0);
 
   const vaciarCarrito = () => setCarrito([]);
+
+
+
 
   const categorias = [...new Set(productos.map(p => p.categoria))];
 
@@ -58,6 +64,15 @@ export default function TiendaFull() {
             <a href="#menu" className="hover:underline">Menú</a>
             <a href="#carrito" className="hover:underline">Carrito</a>
             <a href="#contacto" className="hover:underline">Contacto</a>
+            <button onClick={() => setCartOpen(true)} className="relative text-gray-700 hover:text-indigo-600">
+                🛒
+                {carrito.length > 0 && (
+                <span className="absolute -top-2 -right-2 text-xs bg-red-500 text-white rounded-full px-1">
+                  {carrito.length}
+                </span>
+              )}
+              </button>
+
           </div>
         </div>
       </nav>
@@ -103,37 +118,7 @@ export default function TiendaFull() {
         </div>
       </section>
 
-      <section id="carrito" className="py-12 px-4 bg-gray-100" data-aos="fade-up">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold mb-6 text-center">🛒 Carrito</h3>
-          {carrito.length === 0 ? (
-            <p className="text-center text-gray-600">No hay productos en el carrito aún.</p>
-          ) : (
-            <>
-              <ul className="space-y-4">
-                {carrito.map((item, index) => (
-                  <li key={index} className="bg-white rounded shadow p-4 flex justify-between">
-                    <span>{item.nombre}</span>
-                    <span className="text-red-600 font-bold">${item.precio}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 text-right">
-                <p className="text-lg font-bold">Total: ${total}</p>
-                <div className="flex justify-end gap-4 mt-4">
-                  <button onClick={vaciarCarrito} className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded">Vaciar carrito</button>
-                  <a
-                    href="https://www.webpay.cl/" target="_blank" rel="noopener noreferrer"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-                  >
-                    Pagar con WebPay
-                  </a>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-      </section>
+      
 
       <section id="contacto" className="py-16 px-4" data-aos="fade-up">
         <div className="max-w-2xl mx-auto text-center">
@@ -165,6 +150,15 @@ export default function TiendaFull() {
       <footer className="bg-gray-200 text-center py-6 text-sm text-gray-600">
         © 2025 FastDelicious. Todos los derechos reservados.
       </footer>
+      <CarritoSidebar
+        isOpen={cartOpen}
+        onClose={() => setCartOpen(false)}
+        items={carrito}
+        onClear={vaciarCarrito}
+      />
+
+
+
     </main>
   );
 }
