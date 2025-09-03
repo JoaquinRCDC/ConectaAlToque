@@ -13,8 +13,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/ejemplo-landing" element={<EjemploLanding />} />
-        <Route path="/ejemplo-tienda" element={<EjemploMiniTienda />} />
-        <Route path="/ejemplo-tiendaFull" element={<EjemploTiendaFull />} />
+        <Route path="/ejemplo-corporativo" element={<EjemploMiniTienda />} />
+        <Route path="/ejemplo-tienda-online" element={<EjemploTiendaFull />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

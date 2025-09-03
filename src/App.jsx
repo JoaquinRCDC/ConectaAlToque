@@ -22,406 +22,495 @@ export default function App() {
     
     
     <div className="font-sans text-gray-800 antialiased" data-aos="fade-up">
-      {/* Hero Section - Mejorado con gradiente más suave y mejor espaciado */}
-      <header className="bg-gradient-to-r from-teal-600 to-blue-700 text-white py-12 px-4 flex items-center justify-center min-h-[60vh]">
-        <div className="max-w-6xl w-full mx-auto">
-          <div className="flex flex-col items-center text-center">
-            {/* Logo centrado */}
-            <div className="mb-8 w-full max-w-[280px] md:max-w-[350px]" data-aos="fade-up">
-              <img 
-                src={logobanner} 
-                alt="Logo Conecta al Toque" 
-                className="w-full"
-              />
-            </div>
-            
-            {/* Contenido de texto */}
-            <h1 className="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Obtén tu propia página web en menos de 2 días.</h1>
-            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto" data-aos="fade-up" >“Si tu negocio no está en internet, tu negocio no existe” - Bill Gates</p>
-            
-            {/* Botón */}
-            <div data-aos="fade-up">
-            <a 
-              href="https://wa.me/56929240183?text=Hola!%20Estoy%20interesado%20en%20una%20página%20web%20con%20ConectAlToque"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold px-8 py-3 rounded-lg transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-1" 
-            >
-              <FaWhatsapp className="text-2xl" />
-              Contáctanos por WhatsApp
-            </a>
+      {/* HERO – versión optimizada para conversión */}
+<header className="bg-gradient-to-br from-blue-700 via-indigo-700 to-sky-600 text-white py-16 px-4">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    {/* Lado izquierdo: texto */}
+    <div className="text-center md:text-left">
+      {/* Badge superior */}
+      <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur px-3 py-1 rounded-full text-sm font-medium">
+        <span className="inline-block w-2 h-2 rounded-full bg-emerald-300"></span>
+        Planes desde $100.000 · Entrega en 2–3 días
+      </div>
+
+      <h1 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight">
+        Tu página web lista en días, no semanas.
+      </h1>
+      <p className="mt-4 text-lg opacity-90">
+        Diseñamos sitios modernos, rápidos y listos para vender. Tú te enfocas en tu negocio, nosotros en tu web.
+      </p>
+
+      {/* CTAs */}
+      <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:justify-start justify-center">
+        <a
+          href="https://wa.me/56929240183?text=Hola!%20Estoy%20interesado%20en%20una%20página%20web%20con%20ConectAlToque"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <FaWhatsapp className="text-2xl" />
+          Cotizar por WhatsApp
+        </a>
+        <a
+          href="#planes"
+          className="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-white/60 hover:bg-white/10 font-semibold transition"
+        >
+          Ver planes
+        </a>
+      </div>
+
+      {/* Tiras de confianza */}
+      <div className="mt-6 grid grid-cols-3 gap-3 text-sm opacity-95">
+        {[
+          { t: "Entrega 2–3 días" },
+          { t: "Soporte en Chile" },
+          { t: "Sitios responsivos" },
+        ].map((item, i) => (
+          <div key={i} className="bg-white/10 rounded-lg px-3 py-2 text-center">
+            {item.t}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Lado derecho: logo/visual */}
+    <div className="flex items-center justify-center">
+      <img
+        src={logobanner}
+        alt="Logo Conecta al Toque"
+        className="w-full max-w-[360px] drop-shadow-2xl"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </div>
+</header>
+
+
+      {/* Problema / Solución – versión persuasiva */}
+<section className="py-16 px-4 bg-white">
+  <div className="max-w-6xl mx-auto">
+    <div className="text-center mb-10">
+      <h2 className="text-3xl font-bold">¿Por qué tu negocio necesita una web?</h2>
+      <p className="text-gray-600 mt-2">Lo que suele pasar vs. cómo lo resolvemos.</p>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-8">
+      {/* Problemas */}
+      <div className="bg-gray-50 p-7 rounded-2xl border border-gray-200">
+        <h3 className="font-bold text-lg mb-4 text-gray-800">Lo que pasa</h3>
+        <ul className="space-y-3 text-gray-700">
+          {[
+            "No te encuentran en Google y pierdes credibilidad.",
+            "Dependes 100% de redes sociales para vender.",
+            "No hay un lugar claro con toda tu información.",
+            "Los clientes no saben cómo contactarte rápido.",
+          ].map((item, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="text-red-500 mt-1">✖</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Solución */}
+      <div className="bg-blue-50 p-7 rounded-2xl border border-blue-200">
+        <h3 className="font-bold text-lg mb-4 text-gray-800">Cómo lo resolvemos</h3>
+        <ul className="space-y-3 text-gray-700">
+          {[
+            "Sitio optimizado y responsive con SEO básico.",
+            "Botón directo a WhatsApp / formulario de contacto.",
+            "Contenido enfocado en vender (servicios, ventajas, CTA).",
+            "Implementaciones a medida: WebPay y catálogo si lo necesitas.",
+          ].map((item, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="text-green-600 mt-1">✔</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        {/* Mini trust bar */}
+        <div className="mt-5 grid grid-cols-3 gap-3 text-sm">
+          {["Rápido", "Seguro", "Escalable"].map((k, i) => (
+            <div key={i} className="bg-white/80 rounded-lg px-3 py-2 text-center border border-blue-100">{k}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      {/* Lo que ofrecemos – curado */}
+<section className="py-16 px-4 bg-white">
+  <div className="max-w-6xl mx-auto text-center">
+    <span className="text-blue-600 font-semibold mb-2 block">Lo que ofrecemos</span>
+    <h2 className="text-3xl font-bold mb-10">Todo lo que tu web necesita</h2>
+
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {[
+        { icon: "🎨", t: "Diseño a tu estilo", d: "Moderno, claro y adaptado a tu marca." },
+        { icon: "⚡", t: "Rápida y segura", d: "Optimizada en rendimiento y con SSL." },
+        { icon: "📱", t: "WhatsApp y contacto", d: "Atiende consultas sin fricción." },
+        { icon: "🔍", t: "SEO básico", d: "Configurada para aparecer en búsquedas." },
+        { icon: "🛒", t: "E-commerce opcional", d: "Carrito + WebPay cuando lo necesites." },
+        { icon: "🔧", t: "Mantención", d: "Actualizaciones y soporte técnico." },
+      ].map((it, i) => (
+        <div key={i} className="bg-gray-50 p-6 rounded-xl border hover:shadow-lg transition">
+          <span className="text-3xl">{it.icon}</span>
+          <h3 className="mt-3 font-bold">{it.t}</h3>
+          <p className="text-gray-600 text-sm mt-1">{it.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+      {/* Ejemplos de páginas - Cards actualizadas */}
+<section className="py-16 px-4 bg-gray-50" data-aos="fade-up" id="servicios">
+  <div className="max-w-6xl mx-auto">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl font-bold mb-4">Nuestros trabajos</h2>
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        Revisa nuestros modelos y elige el que más te guste.
+      </p>
+    </div>
+
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {/* Ejemplo Landing */}
+      <a href="/ejemplo-landing" className="block">
+        <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+          <div className="h-48 overflow-hidden">
+            <img src={EjemploLanding} alt="Preview Landing" className="w-full h-full object-cover" loading="lazy" decoding="async"/>
+          </div>
+          <div className="p-6">
+            <h3 className="font-bold text-xl mb-2">Landing Page</h3>
+            <p className="text-gray-600 mb-4">Presentación profesional con llamados a la acción claros.</p>
+            <div className="flex justify-between items-center">
+              <span className="text-blue-600 hover:text-blue-800 font-medium">Ver ejemplo →</span>
+              <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Más popular</span>
             </div>
           </div>
         </div>
-      </header>
+      </a>
 
-      {/* Problema + Solución - Mejor jerarquía */}
-      <section className="py-16 px-4 bg-white " data-aos="fade-up">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">NECESITAS PRESENCIA ONLINE</h2>
-          <div className="grid md:grid-cols-2 gap-8 text-left mt-10">
-            <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-blue-500 transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg" >
-              <h3 className="font-bold text-lg mb-3 text-gray-800">El problema</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✖</span>
-                  <span>Tus clientes no te encuentran en Google</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✖</span>
-                  <span>Dependes 100% de redes sociales</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✖</span>
-                  <span>Pierdes ventas por no tener web profesional</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-indigo-500 transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
-              <h3 className="font-bold text-lg mb-3 text-gray-800">Nuestra solución</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✔</span>
-                  <span>Web rápida y optimizada para móviles</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✔</span>
-                  <span>Diseño que refleja tu marca</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✔</span>
-                  <span>Integración directa con WhatsApp o Instagram</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✔</span>
-                  <span>Integración de WebPay</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✔</span>
-                  <span>Carrito de compras</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✔</span>
-                  <span>Gestión de inventario</span>
-                </li>
-              </ul>
-            </div>
+      {/* Ejemplo Corporativo */}
+      <a href="/ejemplo-corporativo" className="block">
+        <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+          <div className="h-48 overflow-hidden">
+            <img src={ejemplominitienda} alt="Preview Corporativo" className="w-full h-full object-cover" loading="lazy" decoding="async"/>
+          </div>
+          <div className="p-6">
+            <h3 className="font-bold text-xl mb-2">Sitio Corporativo</h3>
+            <p className="text-gray-600 mb-4">Hasta 5 secciones, formulario avanzado e integración con redes.</p>
+            <span className="text-indigo-600 hover:text-indigo-800 font-medium">Ver ejemplo →</span>
           </div>
         </div>
-      </section>
+      </a>
 
-      {/* Servicios - Mejor diseño */}
-      <section className="py-16 px-4 bg-white" data-aos="fade-up">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="text-blue-600 font-semibold mb-2 block">Lo que ofrecemos</span>
-          <h2 className="text-3xl font-bold mb-12">Todo incluido en tu web</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8 " >
-            {[
-              {
-                icon: '🎨',
-                title: 'Diseño premium',
-                description: 'Moderno, adaptable a móviles y con tu identidad visual'
-                
-              },
-              {
-                icon: '⚡',
-                title: 'Rápida y segura',
-                description: 'Optimizada para velocidad y con certificado SSL'
-              },
-              {
-                icon: '📱',
-                title: 'Integración WhatsApp',
-                description: 'Botón directo de contacto para más ventas'
-              },
-              {
-                icon: '🔍',
-                title: 'SEO básico',
-                description: 'Configuración para aparecer en búsquedas'
-              },
-              {
-                icon: '🔄',
-                title: 'Actualizaciones',
-                description: 'Soporte para pequeños cambios mensuales'
-              },
-              {
-                icon: '📊',
-                title: 'Analíticas',
-                description: 'Integración con Google Analytics'
-              },
-              {
-                icon: '📦',
-                title: 'Gestion de inventario',
-                description: 'Gestion de productos y stock para tiendas online'
-              },
-              {
-                icon: '🛒',
-                title: 'Carrito de compras',
-                description: 'Implementacion de carrito de compras para tiendas'
-              },
-              {
-                icon: '💳',
-                title: 'WebPay',
-                description: 'Integración con Webpay para pagos online'
-              }
-
-              
-
-            ].map((service, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-xl hover:bg-blue-50 transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
-                <span className="text-3xl mb-3 block">{service.icon}</span>
-                <h3 className="font-bold text-lg mb-2">{service.title}</h3>
-                <p className="text-gray-600 text-sm">{service.description}</p>
-              </div>
-            ))}
+      {/* Ejemplo Tienda Online */}
+      <a href="/ejemplo-tienda-online" className="block">
+        <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+          <div className="h-48 overflow-hidden">
+            <img src={EjemploTiendaFull} alt="Preview Tienda Online" className="w-full h-full object-cover"loading="lazy" decoding="async" />
+          </div>
+          <div className="p-6">
+            <h3 className="font-bold text-xl mb-2">Tienda Online</h3>
+            <p className="text-gray-600 mb-4">Catálogo dinámico, carrito + WebPay y gestión básica de inventario.</p>
+            <span className="text-purple-600 hover:text-purple-800 font-medium">Ver ejemplo →</span>
           </div>
         </div>
-      </section>
+      </a>
+    </div>
+  </div>
+</section>
 
-
-      {/* Ejemplos de páginas - Cards mejoradas */}
-      <section className="py-16 px-4 bg-gray-50" data-aos="fade-up" id="servicios">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Nuestros trabajos</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Revisa nuestros modelos de trabajo y elije el que más te guste.
-            </p>
-          </div>
-          
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"> <a href="/ejemplo-landing">
-            {/* Ejemplo Landing */}
-            
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={EjemploLanding}
-                  alt="Preview Landing"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-2">Landing Page</h3>
-                <p className="text-gray-600 mb-4">
-                  Presentación profesional con llamados a acción estratégicos
-                </p>
-                <div className="flex justify-between items-center">
-                  <a 
-                    href="/ejemplo-landing" 
-                    className="text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    Ver ejemplo →
-                  </a>
-                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                    Más popular
-                  </span>
-                  
-                </div>
-                
-              </div>
-              
-            </div>
-            </a>
-
-            {/* Ejemplo Tienda */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"  > <a href="/ejemplo-tienda" >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={ejemplominitienda}
-                  alt="Preview Landing"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-2">Mini tienda</h3>
-                <p className="text-gray-600 mb-4">
-                  Catálogo de productos con integración a WhatsApp o instagram para pedidos
-                </p>
-                <div className="flex justify-between items-center">
-                <a 
-                  href="/ejemplo-tienda" 
-                  className="text-indigo-600 hover:text-indigo-800 font-medium"
-                >
-                  Ver ejemplo →
-                  
-                </a>
-                
-                </div>
-                
-              </div>
-              </a>
-            </div>
-            
-
-            {/* Nuevo ejemplo agregado */}
-            
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg" > <a href="/ejemplo-tiendaFull">
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={EjemploTiendaFull}
-                  alt="Preview Landing"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-2">Tienda Full</h3>
-                <p className="text-gray-600 mb-4">
-                  Tu tienda online completa con carrito de compras y WebPay
-                </p>
-                <a 
-                  href="#" 
-                  className="text-amber-600 hover:text-amber-800 font-medium"
-                >
-                  Ver ejemplo →
-                </a>
-              </div>
-              </a>
-            </div>
-            
-          </div>
-          
-        </div>
-        
-      </section>
-
-      <section className="py-20 px-4 bg-white" data-aos="fade-up">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Comparación de planes</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-200 text-sm">
-              <thead>
-                <tr className="bg-blue-600 text-white">
-                  <th className="py-3 px-4 text-left">Funcionalidad</th>
-                  <th className="py-3 px-4">Landing Page</th>
-                  <th className="py-3 px-4">Mini Tienda</th>
-                  <th className="py-3 px-4">Tienda Full</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  ["Diseño personalizado", true, true, true],
-                  ["Responsive (móvil/tablet)", true, true, true],
-                  ["Botón de contacto", true, true, true],
-                  ["Catálogo de productos", false, true, true],
-                  ["Categorías de productos", false, true, true],
-                  ["WhatsApp por producto", false, true, false],
-                  ["Carrito de compras", false, false, true],
-                  ["WebPay", false, false, true],
-                  ["Gestión de inventario", false, false, true],
-                  ["Formulario de contacto", false, true, true],
-                  ["Mapa/localización", false, true, true],
-                  ["SEO básico", true, true, true],
-                  ["Animaciones AOS", true, true, true],
-                ].map(([item, landing, mini, full], i) => (
-                  <tr
-                    key={i}
-                    className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
-                  >
-                    <td className="py-3 px-4 text-left font-medium text-gray-700">
-                      {item}
-                    </td>
-                    {[landing, mini, full].map((val, j) => (
-                      <td
-                        key={j}
-                        className="py-3 px-4 text-center text-xl"
-                      >
-                        {val ? "✔️" : "—"}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
 
       
-      {/* Planes - Más atractivos */}
-      <section className="py-16 px-4 bg-gray-50 " data-aos="fade-up" >
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Planes a medida</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Elige la opción que mejor se adapte a las necesidades de tu negocio
-            </p>
+      {/* Planes para emprendedores – Año 1 incluido */}
+<section id="planes" className="py-20 px-4 bg-gray-50" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto">
+    {/* Título */}
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+        Planes para emprendedores
+      </h2>
+      <p className="text-gray-600 text-lg mt-3">
+        Empieza simple y escala cuando tu negocio lo necesite.
+      </p>
+    </div>
+
+    {/* Cards */}
+    <div className="grid gap-8 md:grid-cols-3">
+      {/* Landing */}
+      <div className="group relative flex flex-col rounded-2xl bg-white shadow-[0_10px_30px_rgba(0,0,0,.06)] ring-1 ring-gray-200 hover:shadow-[0_16px_40px_rgba(0,0,0,.10)] transition-all duration-300">
+        {/* Header */}
+        <div className="rounded-t-2xl p-8 text-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200">
+          <h3 className="text-xl font-bold text-blue-900">Landing Page</h3>
+          <div className="mt-2 flex items-baseline justify-center gap-1">
+            <span className="text-blue-700 text-5xl font-extrabold">$120.000</span>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Landing Page',
-                price: '$89.000 ',
-                popular: false,
-                features: ['1 sección principal', 'Diseño personalizado', 'Botón de contacto', 'Optimización móvil','Animaciones básicas'],
-                color: 'blue'
-              },
-              {
-                name: 'Mini Tienda',
-                price: '$129.000',
-                popular: true,
-                features: ['Hasta 3 secciones', 'Publicaciones de instagram', 'Gestion de Productos', 'Formulario de contacto', 'SEO básico'],
-                color: 'blue'
-              },
-              {
-                name: 'Tienda Full',
-                price: '$179.000',
-                popular: false,
-                features: ['Catálogo de productos', 'Carrito de compra', 'Gestión de inventario', 'WebPay', 'Analíticas'],
-                color: 'blue'
-              }
-            ].map((plan, index) => {
-              // 🔧 Agrega esto dentro del map
-              const link = `https://wa.me/56929240183?text=${encodeURIComponent(`Hola! Estoy interesado en el plan ${plan.name} de ConectAlToque.`)}`;
 
-              return (
-                <div 
-                  key={index} 
-                  className={`relative rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg ${plan.popular ? 'ring-2 ring-blue-500 transform md:-translate-y-4 ' : ''}`}
-                >
-                  {plan.popular && (
-                    <div className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-                      RECOMENDADO
-                    </div>
-                  )}
-
-                  <div className={`bg-${plan.color}-100 p-6 text-center`}>
-                    <h3 className={`text-2xl font-bold text-${plan.color}-800`}>{plan.name}</h3>
-                    <p className={`text-${plan.color}-600 text-4xl font-bold mt-4`}>{plan.price}</p>
-                    <p className="text-gray-600 text-sm mb-2 mt-4">Una vez pagado, es tuyo para siempre. Solo se renueva el hosting anualmente <br />(35.000 CLP)</p>
-                    
-
-                  </div>
-
-                  <div className="bg-white p-6">
-                    <ul className="space-y-3 mb-6">
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className={`text-${plan.color}-500 mr-2`}>✓</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* ✅ Botón funcional por plan */}
-                    <a
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`block text-center bg-${plan.color}-600 hover:bg-${plan.color}-700 text-white font-bold py-3 rounded-lg  transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg`}
-                    >
-                      Contratar {plan.name}
-                    </a>
-                  </div>
-                </div>
-              );
-            })}
+          {/* Año 1 incluido */}
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-sm font-semibold border border-emerald-200">
+              ✅ Primer año de mantención incluido
+            </span>
+          </div>
+          <div className="inline-flex mt-3 px-3 py-1 rounded-full bg-white/70 text-gray-800 text-sm font-medium shadow-sm">
+            Renovación desde <span className="ml-1 font-bold">$60.000/año</span>
           </div>
         </div>
-      </section>
+
+        {/* Body */}
+        <div className="p-8 flex-1">
+          <ul className="space-y-3 text-gray-700">
+            {[
+              "1 página con secciones (inicio, servicios, contacto)",
+              "Diseño responsive y personalizado",
+              "Botón de contacto (WhatsApp o email)",
+              "SEO básico",
+              "⚡ Entrega rápida (2–3 días)"
+            ].map((f, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="mt-1 text-blue-500">✓</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* CTA */}
+        <div className="p-8 pt-0">
+          <a
+            href={`https://wa.me/56929240183?text=${encodeURIComponent("Hola! Estoy interesado en la Landing Page de Conecta al Toque.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center rounded-xl bg-blue-600 py-3 font-bold text-white shadow hover:bg-blue-700 hover:-translate-y-0.5 active:translate-y-0 transition-all"
+          >
+            Contratar Landing
+          </a>
+        </div>
+      </div>
+
+      {/* Corporativo (Recomendado) */}
+      <div className="group relative flex flex-col rounded-2xl bg-white shadow-[0_12px_36px_rgba(76,72,255,.15)] ring-2 ring-indigo-400 hover:shadow-[0_18px_48px_rgba(76,72,255,.22)] transition-all duration-300 md:-translate-y-1.5">
+        <div className="absolute -top-3 right-6 rounded-full bg-indigo-600 text-white text-[11px] font-extrabold px-3 py-1 tracking-wide shadow">
+          RECOMENDADO
+        </div>
+
+        {/* Header */}
+        <div className="rounded-t-2xl p-8 text-center bg-gradient-to-br from-indigo-50 via-indigo-100 to-indigo-200">
+          <h3 className="text-xl font-bold text-indigo-900">Sitio Corporativo</h3>
+          <div className="mt-2 flex items-baseline justify-center gap-1">
+            <span className="text-indigo-700 text-5xl font-extrabold">$220.000</span>
+          </div>
+
+          {/* Año 1 incluido */}
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-sm font-semibold border border-emerald-200">
+              ✅ Primer año de mantención incluido
+            </span>
+          </div>
+          <div className="inline-flex mt-3 px-3 py-1 rounded-full bg-white/70 text-gray-800 text-sm font-medium shadow-sm">
+            Renovación desde <span className="ml-1 font-bold">$70.000/año</span>
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="p-8 flex-1">
+          <ul className="space-y-3 text-gray-700">
+            {[
+              "4–5 secciones (inicio, servicios, quiénes somos, contacto, etc.)",
+              "Formulario de contacto avanzado",
+              "Integración con redes sociales",
+              "Animaciones y SEO básico",
+              "Optimización de velocidad"
+            ].map((f, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="mt-1 text-indigo-500">✓</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* CTA */}
+        <div className="p-8 pt-0">
+          <a
+            href={`https://wa.me/56929240183?text=${encodeURIComponent("Hola! Estoy interesado en el Sitio Corporativo de Conecta al Toque.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center rounded-xl bg-indigo-600 py-3 font-bold text-white shadow hover:bg-indigo-700 hover:-translate-y-0.5 active:translate-y-0 transition-all"
+          >
+            Contratar Corporativo
+          </a>
+        </div>
+      </div>
+
+      {/* Tienda */}
+      <div className="group relative flex flex-col rounded-2xl bg-white shadow-[0_10px_30px_rgba(0,0,0,.06)] ring-1 ring-gray-200 hover:shadow-[0_16px_40px_rgba(0,0,0,.10)] transition-all duration-300">
+        {/* Header */}
+        <div className="rounded-t-2xl p-8 text-center bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200">
+          <h3 className="text-xl font-bold text-purple-900">Tienda Online</h3>
+          <div className="mt-2 flex items-baseline justify-center gap-1">
+            <span className="text-purple-700 text-5xl font-extrabold">desde $300.000</span>
+          </div>
+
+          {/* Año 1 incluido */}
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-sm font-semibold border border-emerald-200">
+              ✅ Primer año de mantención incluido
+            </span>
+          </div>
+          <div className="inline-flex mt-3 px-3 py-1 rounded-full bg-white/70 text-gray-800 text-sm font-medium shadow-sm">
+            Renovación desde <span className="ml-1 font-bold">$90.000/año</span>
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="p-8 flex-1">
+          <ul className="space-y-3 text-gray-700">
+            {[
+              "Catálogo de productos dinámico",
+              "Contacto por producto (WhatsApp o formulario)",
+              "Opción carrito + WebPay",
+              "Gestión de inventario básica"
+            ].map((f, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="mt-1 text-purple-500">✓</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* CTA */}
+        <div className="p-8 pt-0">
+          <a
+            href={`https://wa.me/56929240183?text=${encodeURIComponent("Hola! Estoy interesado en la Tienda Online de Conecta al Toque.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center rounded-xl bg-purple-600 py-3 font-bold text-white shadow hover:bg-purple-700 hover:-translate-y-0.5 active:translate-y-0 transition-all"
+          >
+            Cotizar Tienda
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Nota */}
+    <p className="text-xs text-gray-500 mt-6 text-center">
+      *El “primer año incluido” corresponde al plan de mantención <b>Básico</b> (soporte y actualizaciones menores). 
+      Puedes cambiar a <b>Pro</b> en cualquier momento pagando la diferencia. Renovaciones a partir del segundo año.
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
+
+      {/* Hosting + Mantenimiento – renovaciones desde el segundo año */}
+<section className="py-16 px-4 bg-white" data-aos="fade-up">
+  <div className="max-w-5xl mx-auto">
+    <div className="text-center mb-10">
+      <span className="text-blue-600 font-semibold mb-2 block">Soporte continuo</span>
+      <h2 className="text-3xl font-bold mb-2">Planes de Hosting + Mantenimiento</h2>
+      <p className="text-gray-700 font-medium">
+        ✅ El <b>primer año del plan Básico ya está incluido</b> al contratar tu sitio. <br className="hidden sm:block" />
+        Estos planes aplican para <b>renovación desde el segundo año</b> o para quienes deseen subir a Pro.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-8">
+      {[
+        {
+          name: 'Básico',
+          price: '$60.000 / año',
+          color: 'emerald',
+          badge: 'Incluido en el 1er año',
+          features: [
+            'Monitoreo básico de uptime',
+            'Actualizaciones menores mensuales',
+            'Respaldo mensual',
+            'Corrección de errores críticos',
+            'Soporte por email/WhatsApp (horario laboral)'
+          ]
+        },
+        {
+          name: 'Pro',
+          price: '$90.000 / año',
+          color: 'indigo',
+          popular: true,
+          badge: 'Recomendado para tiendas',
+          features: [
+            'Todo lo del Básico',
+            'Optimización de rendimiento e imágenes',
+            'Backups semanales + restauración',
+            'Reporte de estado mensual (cambios y uptime)',
+            'Prioridad en soporte'
+          ]
+        }
+      ].map((plan, i) => {
+        const link = `https://wa.me/56929240183?text=${encodeURIComponent(
+          `Hola! Quiero el plan de Hosting + Mantenimiento ${plan.name} de Conecta al Toque.`
+        )}`;
+        return (
+          <div
+            key={i}
+            className={`relative rounded-2xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg ${
+              plan.popular ? 'ring-2 ring-indigo-500' : 'ring-1 ring-gray-200'
+            }`}
+          >
+            {plan.badge && (
+              <div className="absolute top-0 right-0 bg-black/70 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                {plan.badge}
+              </div>
+            )}
+
+            <div className={`bg-${plan.color}-100 p-6 text-center`}>
+              <h3 className={`text-2xl font-bold text-${plan.color}-800`}>Plan {plan.name}</h3>
+              <p className={`text-${plan.color}-600 text-3xl font-bold mt-2`}>{plan.price}</p>
+              <p className="text-gray-500 text-xs mt-2">Facturación anual</p>
+            </div>
+
+            <div className="bg-white p-6">
+              <ul className="space-y-3 mb-6">
+                {plan.features.map((f, idx) => (
+                  <li key={idx} className="flex items-start">
+                    <span className={`text-${plan.color}-500 mr-2`}>✓</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`block text-center bg-${plan.color}-600 hover:bg-${plan.color}-700 text-white font-bold py-3 rounded-lg transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg`}
+              >
+                Contratar Plan {plan.name}
+              </a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <p className="text-xs text-gray-500 mt-6 text-center">
+      *No incluye desarrollos de nuevas secciones/funcionalidades. Si el uso crece y requiere más recursos de terceros, te avisamos antes para proponer upgrade.
+    </p>
+  </div>
+</section>
+
+
 
       
 
@@ -472,9 +561,9 @@ export default function App() {
             <h4 className="text-white font-medium mb-4">Servicios</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="/ejemplo-landing" className="hover:text-white transition">Landing Pages</a></li>
-              <li><a href="/ejemplo-tienda" className="hover:text-white transition">Mini tienda</a></li>
-              <li><a href="servicios" className="hover:text-white transition">Tienda full</a></li>
-              <li><a href="servicios" className="hover:text-white transition">Mantención</a></li>
+              <li><a href="/ejemplo-corporativo" className="hover:text-white transition">Sitio corporativo</a></li>
+              <li><a href="/ejemplo-tienda-online" className="hover:text-white transition">Tienda online</a></li>
+              <li><a href="#planes" className="hover:text-white transition">Mantención</a></li>
             </ul>
           </div>
           <div>
