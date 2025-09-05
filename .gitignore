@@ -2,3 +2,9 @@
 node_modules
 dist
 .vscode
+.env
+
+# .gitignore
+node_modules
+dist
+.vscode

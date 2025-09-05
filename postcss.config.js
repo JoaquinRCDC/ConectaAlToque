@@ -1,6 +1,6 @@
-import tailwindcss from "tailwindcss";
-import autoprefixer from "autoprefixer";
-
-export default {
-  plugins: [tailwindcss, autoprefixer],
+// This file is used to configure PostCSS with Tailwind CSS and Autoprefixer
+// It exports a configuration object that includes the necessary plugins.
+module.exports =  {
+  plugins: [require("tailwindcss"),
+    require("autoprefixer"),]
 };
