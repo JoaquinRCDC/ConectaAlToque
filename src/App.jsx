@@ -1,4 +1,4 @@
-const logobanner = new URL('./assets/logobanner.png', import.meta.url).href;
+const logobanner = new URL('./assets/logosinfondo.png', import.meta.url).href;
 const EjemploLanding = new URL('./assets/EjemploLanding.png', import.meta.url).href;
 const ejemplominitienda = new URL('./assets/ejemplominitienda.png', import.meta.url).href;
 const EjemploTiendaFull = new URL('./assets/EjemploTiendaFull.png', import.meta.url).href;
