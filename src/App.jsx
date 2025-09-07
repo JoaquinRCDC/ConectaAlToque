@@ -11,6 +11,7 @@ const fmtCLP = (n) => n.toLocaleString('es-CL');
 const baseOrCharm = (n) => (USE_CHARM_PRICING ? n - 100 : n); 
 const desdeStr = (n) => `desde $${fmtCLP(baseOrCharm(n))}`;
 
+const RENEW = { landing: 60000, corporativo: 70000, tienda: 90000 };
 
 
 
@@ -510,6 +511,92 @@ export default function App() {
     </section>
 
 
+{/* Comparativa de planes (actualizada) */}
+<section id="comparacion" className="py-16 px-4 bg-white" data-aos="fade-up">
+  <div className="max-w-6xl mx-auto">
+    <div className="text-center mb-8">
+      <h2 className="text-3xl font-bold">Comparativa de planes</h2>
+      <p className="text-gray-600">Precios base “desde”, con el 1er año de mantención incluido.</p>
+    </div>
+
+    <div className="overflow-x-auto rounded-xl ring-1 ring-gray-200">
+      <table className="min-w-full bg-white text-sm">
+        <thead>
+          <tr className="bg-gray-50 text-gray-900">
+            <th className="py-4 px-4 text-left font-semibold">Funcionalidad</th>
+
+            {/* Landing */}
+            <th className="py-4 px-4 text-center">
+              <div className="font-bold">Landing Page</div>
+              <div className="text-blue-700 font-extrabold text-lg">
+                {desdeStr(PRICES.landing)}
+              </div>
+              <div className="text-xs text-gray-500">
+                Renovación: ${fmtCLP(RENEW.landing)}/año
+              </div>
+            </th>
+
+            {/* Corporativo */}
+            <th className="py-4 px-4 text-center">
+              <div className="font-bold">Sitio Corporativo</div>
+              <div className="text-indigo-700 font-extrabold text-lg">
+                {desdeStr(PRICES.corporativo)}
+              </div>
+              <div className="text-xs text-gray-500">
+                Renovación: ${fmtCLP(RENEW.corporativo)}/año
+              </div>
+            </th>
+
+            {/* Tienda */}
+            <th className="py-4 px-4 text-center">
+              <div className="font-bold">Tienda Online</div>
+              <div className="text-purple-700 font-extrabold text-lg">
+                {desdeStr(PRICES.tienda)}
+              </div>
+              <div className="text-xs text-gray-500">
+                Renovación: ${fmtCLP(RENEW.tienda)}/año
+              </div>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody className="divide-y divide-gray-100">
+          {[
+            ["Diseño personalizado", true, true, true],
+            ["Responsive (móvil/tablet)", true, true, true],
+            ["Botón de contacto (WhatsApp o email)", true, true, true],
+            ["Formulario de contacto avanzado", false, true, true],
+            ["Catálogo de productos", false, true, true],
+            ["Carrito + WebPay", false, false, "Opcional"],
+            ["Gestión de inventario básica", false, false, true],
+            ["SEO básico", true, true, true],
+            ["Primer año de mantención incluido", true, true, true],
+          ].map(([label, l, c, t], i) => (
+            <tr key={i} className={i % 2 ? "bg-white" : "bg-gray-50"}>
+              <td className="py-3 px-4 text-gray-700">{label}</td>
+              {[l, c, t].map((val, j) => (
+                <td key={j} className="py-3 px-4 text-center">
+                  {val === true ? (
+                    <span className="text-emerald-600 text-lg">✔</span>
+                  ) : val === false ? (
+                    <span className="text-gray-300">—</span>
+                  ) : (
+                    <span className="text-xs text-gray-600">{val}</span>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p className="text-xs text-gray-500 mt-4 text-center">
+      *Los precios son <b>desde</b> y pueden variar según el alcance. El primer año incluye mantención
+      <b> Básica</b>; desde el segundo año se renueva según el plan. Integraciones y funciones extra se cotizan aparte.
+    </p>
+  </div>
+</section>
 
 
 
