@@ -1,15 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es-CL">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conecta Al Toque</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="src/assets/LogoChicoCATMasGrande.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="src/assets/LogoChicoCATMasGrande.png" />
-    <link rel="apple-touch-icon" href="src/assets/LogoChicoCATMasGrande.png" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
 
+    <!-- Título/Descripción por defecto (las páginas pueden sobreescribir con Helmet) -->
+    <title>Conecta Al Toque — Sitios web que venden</title>
+    <meta
+      name="description"
+      content="Creamos sitios web rápidos, seguros y optimizados para SEO. Entrega ágil, soporte en Chile y planes para emprendedores."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- Dominio base de la SPA -->
+    <base href="/" />
+
+    <!-- Íconos (mueve los archivos a /public/icons/) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0B4266" />
+
+    <!-- Canonical por defecto (las rutas internas pondrán su propio canonical con Helmet) -->
+    <link rel="canonical" href="https://conectaaltoque.cl/" />
+    <link rel="alternate" hreflang="es-cl" href="https://conectaaltoque.cl/" />
+
+    <!-- Open Graph / Twitter (defaults) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Conecta Al Toque" />
+    <meta property="og:title" content="Conecta Al Toque — Sitios web que venden" />
+    <meta property="og:description" content="Sitios modernos, rápidos y listos para vender. Soporte local en Chile." />
+    <meta property="og:url" content="https://conectaaltoque.cl/" />
+    <meta property="og:image" content="https://conectaaltoque.cl/og-cover.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Conecta Al Toque — Sitios web que venden" />
+    <meta name="twitter:description" content="Sitios modernos, rápidos y listos para vender. Soporte local en Chile." />
+    <meta name="twitter:image" content="https://conectaaltoque.cl/og-cover.jpg" />
+
+    <!-- Performance: preconexión (actívalo si usas Google Fonts u orígenes externos) -->
+    <!--
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    -->
+
+    <!-- (Opcional) Preload de la hero si es crítica para el LCP -->
+    <!--
+    <link rel="preload" as="image" href="/img/hero-1200.webp"
+          imagesrcset="/img/hero-800.webp 800w, /img/hero-1200.webp 1200w"
+          imagesizes="(max-width: 768px) 100vw, 1200px" />
+    -->
+
+    <!-- JSON-LD base (Organization y WebSite). Páginas internas pueden añadir más con Helmet -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Organization",
+      "name":"Conecta Al Toque",
+      "url":"https://conectaaltoque.cl",
+      "logo":"https://conectaaltoque.cl/logo.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"WebSite",
+      "url":"https://conectaaltoque.cl",
+      "name":"Conecta Al Toque",
+      "potentialAction":{
+        "@type":"SearchAction",
+        "target":"https://conectaaltoque.cl/buscar?q={search_term_string}",
+        "query-input":"required name=search_term_string"
+      }
+    }
+    </script>
   </head>
   <body>
+    <noscript>Esta aplicación requiere JavaScript habilitado.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
