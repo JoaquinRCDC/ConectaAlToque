@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaWhatsapp } from "react-icons/fa";
@@ -25,10 +25,67 @@ const desdeStr = (n) => `desde $${fmtCLP(baseOrCharm(n))}`;
 
 const RENEW = { landing: 60000, corporativo: 70000, tienda: 90000 };
 
+// === Helpers de urgencia y contador ===
+const MONTHLY_SLOTS = 8; // ajusta tus cupos objetivo del mes
+
+function getRemainingSlots() {
+  // Heurística simple: “simula” cuántos cupos quedan según el día del mes
+  const today = new Date();
+  const used = Math.min(
+    MONTHLY_SLOTS - 1,
+    Math.floor((today.getDate() / 31) * (MONTHLY_SLOTS - 1))
+  );
+  return Math.max(1, MONTHLY_SLOTS - used);
+}
+
+function nextSundayDate() {
+  const now = new Date();
+  const diff = (7 - now.getDay()) % 7; // 0..6
+  const target = new Date(now);
+  target.setDate(now.getDate() + (diff === 0 ? 7 : diff)); // siempre el próximo domingo
+  target.setHours(23, 59, 59, 999);
+  return target;
+}
+
+function useCountdown(targetDate) {
+  const [remain, setRemain] = useState(() => Math.max(0, targetDate - new Date()));
+  useEffect(() => {
+    const id = setInterval(() => setRemain(Math.max(0, targetDate - new Date())), 1000);
+    return () => clearInterval(id);
+  }, [targetDate]);
+
+  const parts = useMemo(() => {
+    const s = Math.floor(remain / 1000);
+    const d = Math.floor(s / 86400);
+    const h = Math.floor((s % 86400) / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    return { d, h, m, sec };
+  }, [remain]);
+
+  return parts;
+}
+
+// --- arriba del componente (o en el mismo archivo) ---
+const REGULAR_PRICE_TIENDA = 299900;
+const SALE_PRICE_TIENDA = 259900;
+// Termina el próximo domingo o la fecha que quieras (AÑO, MES-1, DÍA)
+const SALE_END = new Date(2025, 10, 17, 23, 59, 59); // 17/11/2025 23:59:59
+
+function isSaleActive() {
+  return Date.now() < SALE_END.getTime();
+}
+
+
+
+
 export default function App() {
   useEffect(() => {
     AOS.init({ duration: 800, once: true }); // once:true reduce trabajo en scroll
   }, []);
+
+  const cupos = getRemainingSlots();
+  const countdown = useCountdown(nextSundayDate());
 
   /* JSON-LD para esta página (Organization + Website) */
   const jsonLd = [
@@ -91,7 +148,7 @@ export default function App() {
       </Helmet>
 
       <SEO
-  title="Conecta Al Toque — Sitios web rápidos y optimizados"
+  title="Conecta Al Toque — Sitios web rápidos y optimizados para emprendedores"
   description="Sitios modernos, rápidos y listos para vender. Entrega en días, soporte en Chile y planes para emprendedores."
   canonical="https://conectaaltoque.cl/"
   ogImage="https://conectaaltoque.cl/og-cover.jpg"
@@ -116,6 +173,21 @@ export default function App() {
     }
   ]}
 />
+ <div className="font-sans text-gray-800 antialiased" data-aos="fade-up">
+        {/* --- Barra de urgencia: cupos + contador al domingo --- */}
+        <div className="sticky top-0 z-40">
+          <div className="bg-amber-500/95 text-gray-900 text-sm px-4 py-2">
+            <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+              <span className="font-semibold">
+                🔥 Este mes quedan <b>{cupos}</b> cupos a precio actual.
+              </span>
+              <span className="text-xs sm:text-sm">
+                Termina en: <b>{countdown.d}d {countdown.h}h {countdown.m}m {countdown.sec}s</b>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
       <div className="font-sans text-gray-800 antialiased" data-aos="fade-up">
@@ -164,6 +236,12 @@ export default function App() {
                 >
                   Ver Portafolio
                 </a>
+              </div>
+
+                {/* Microcopys de confianza */}
+              <div className="mt-3 text-xs opacity-90">
+                <span className="bg-white/10 rounded px-2 py-1 mr-2">Tiempo de respuesta: ~15 min</span>
+                <span className="bg-white/10 rounded px-2 py-1">Pago con WebPay</span>
               </div>
 
               {/* Tiras de confianza */}
@@ -370,6 +448,19 @@ export default function App() {
               </p>
             </div>
 
+            
+       
+
+        {/* ---- Banner de urgencia antes de los planes ---- */}
+        {/* <section className="px-4" data-aos="fade-up">
+          <div className="max-w-6xl mx-auto bg-amber-50 border border-amber-200 rounded-xl p-4 text-amber-900 text-sm flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div className="font-semibold">⏳ Aprovecha precio actual: quedan {cupos} cupos este mes.</div>
+            <div>
+              Finaliza en <b>{countdown.d}d {countdown.h}h {countdown.m}m {countdown.sec}s</b>
+            </div>
+          </div>
+        </section> */}
+
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {/* Ejemplo Landing */}
               <Link to="/ejemplo-landing" className="block">
@@ -448,9 +539,7 @@ export default function App() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold">Comparativa de planes</h2>
-              <p className="text-gray-600">
-                Precios base “desde”, con el 1er año de mantención incluido.
-              </p>
+              <p className="text-gray-600">Precios base “desde”. El primer año de mantención está incluido.</p>
             </div>
 
             <div className="overflow-x-auto rounded-xl ring-1 ring-gray-200">
@@ -645,7 +734,7 @@ export default function App() {
               </div>
 
               {/* Tienda */}
-              <div className="group relative flex flex-col rounded-2xl bg-white shadow-[0_10px_30px_rgba(0,0,0,.06)] ring-1 ring-gray-200 hover:shadow-[0_16px_40px_rgba(0,0,0,.10)] transition-all duration-300">
+              {/* <div className="group relative flex flex-col rounded-2xl bg-white shadow-[0_10px_30px_rgba(0,0,0,.06)] ring-1 ring-gray-200 hover:shadow-[0_16px_40px_rgba(0,0,0,.10)] transition-all duration-300">
                 <div className="rounded-t-2xl p-8 text-center bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200">
                   <h3 className="text-xl font-bold text-purple-900">Tienda Online</h3>
                   <div className="mt-2 flex items-baseline justify-center gap-1">
@@ -690,8 +779,92 @@ export default function App() {
                   </a>
                 </div>
               </div>
+            </div> */}
+
+            {/* === Tarjeta: Tienda Online (reemplaza tu tarjeta actual por esta) === */}
+<div className="group relative flex flex-col rounded-2xl bg-white shadow-[0_10px_30px_rgba(0,0,0,.06)] ring-1 ring-gray-200 hover:shadow-[0_16px_40px_rgba(0,0,0,.10)] transition-all duration-300">
+  {/* Badge promo */}
+  {isSaleActive() ? (
+    <div className="absolute -top-3 right-6 rounded-full bg-rose-600 text-white text-[11px] font-extrabold px-3 py-1 tracking-wide shadow">
+      Precio de lanzamiento
+    </div>
+  ) : (
+    <div className="absolute -top-3 left-6 rounded-full bg-purple-600 text-white text-[11px] font-extrabold px-3 py-1 tracking-wide shadow">
+      Ideal para vender
+    </div>
+  )}
+
+  <div className="rounded-t-2xl p-8 text-center bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200">
+    <h3 className="text-xl font-bold text-purple-900">Tienda Online</h3>
+
+    {/* Bloque de precio */}
+    <div className="mt-2 flex flex-col items-center justify-center gap-1">
+      {isSaleActive() ? (
+        <>
+          <div className="text-sm text-gray-500 line-through">
+            ${fmtCLP(REGULAR_PRICE_TIENDA)}
+          </div>
+          <div className="text-purple-700 text-4xl md:text-5xl font-extrabold">
+            ${fmtCLP(SALE_PRICE_TIENDA)}
+          </div>
+          <div className="text-xs mt-1 text-rose-700 font-semibold">
+            Termina el {SALE_END.toLocaleDateString("es-CL")}
+          </div>
+        </>
+      ) : (
+        <div className="text-purple-700 text-4xl md:text-5xl font-extrabold">
+          ${fmtCLP(REGULAR_PRICE_TIENDA)}
+        </div>
+      )}
+    </div>
+
+    <div className="inline-flex mt-3 px-3 py-1 rounded-full bg-white/70 text-gray-800 text-sm font-medium shadow-sm">
+      Renovación desde <span className="ml-1 font-bold">$90.000/año</span>
+    </div>
+  </div>
+
+  <div className="p-8 flex-1">
+    <ul className="space-y-3 text-gray-700">
+      {[
+        "Catálogo de productos dinámico",
+        "Contacto por producto (WhatsApp o formulario)",
+        "Opción carrito + WebPay",
+        "Gestión de inventario básica",
+      ].map((f, i) => (
+        <li key={i} className="flex gap-3">
+          <span className="mt-1 text-purple-500">✓</span>
+          <span>{f}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div className="p-8 pt-0">
+    <a
+      href={`https://wa.me/56929240183?text=${encodeURIComponent(
+        isSaleActive()
+          ? "Hola! Vi la oferta de lanzamiento de la Tienda Online a $259.900. ¿Podemos hablar hoy?"
+          : "Hola! Quiero cotizar la Tienda Online. ¿Podemos hablar hoy?"
+      )}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block w-full text-center rounded-xl bg-purple-600 py-3 font-bold text-white shadow hover:bg-purple-700 hover:-translate-y-0.5 active:translate-y-0 transition-all"
+    >
+      {isSaleActive() ? "Aprovechar lanzamiento — cotizar" : "Cotizar Tienda"}
+    </a>
+    {/* Microcopy legal/ético */}
+    {isSaleActive() ? (
+      <p className="mt-2 text-[11px] text-gray-500">
+        Precio regular ${fmtCLP(REGULAR_PRICE_TIENDA)}. Promoción válida hasta {SALE_END.toLocaleDateString("es-CL")}
+        {" "}o hasta agotar cupos. Luego aplica precio regular.
+      </p>
+    ) : null}
+  </div>
+</div>
             </div>
 
+
+            
             <p className="text-xs text-gray-500 mt-6 text-center">
               *Precios <b>desde</b> según alcance y complejidad. Incluyen el <b>primer año</b> del plan de
               mantención <b>Básico</b> (soporte y actualizaciones menores). El segundo año en adelante
@@ -827,6 +1000,7 @@ export default function App() {
                 Email <span>→</span> <span className="text-white">✉️</span>
               </a>
             </div>
+            <p className="mt-4 text-xs opacity-90">Tiempo de respuesta habitual: 15–30 min en horario laboral.</p>
           </div>
         </section>
 
